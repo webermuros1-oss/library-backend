@@ -49,8 +49,15 @@ public class AuthorController {
     //Put
     @PutMapping("/edit/{id}")
     public ResponseEntity<Author> editAuthor(@PathVariable int id, @RequestBody Author author){
-        Author authorToEdit = authorService.getAuthorById(id).get();
-        authorService.editAuthor(authorToEdit, author);
-        return ResponseEntity.ok(authorToEdit);
+        try{
+            Author authorToEdit = authorService.getAuthorById(id).orElseThrow(RuntimeException());
+            authorService.editAuthor(id, author);
+            return ResponseEntity.ok(authorToEdit);
+        } catch(Exception exception){
+            System.out.println("Ha ocurrido un error: "+exception.getMessage());
+        }
+
     }
+
+
 }

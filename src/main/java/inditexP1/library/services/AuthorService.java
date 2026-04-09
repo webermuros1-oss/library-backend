@@ -53,6 +53,10 @@ public class AuthorService {
             return true;
     }
 
+    //Post
+    public Author saveAuthor(Author author){
+        return authorRepository.save(author);
+    }
 
 
 }
