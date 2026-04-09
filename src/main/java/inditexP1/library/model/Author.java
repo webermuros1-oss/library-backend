@@ -15,7 +15,7 @@ private int id;
 private String name;
 private String surname;
 private String nationality;
-private Integer birthTear;
+private Integer birthYear;
 private Boolean alive;
 
 
@@ -28,6 +28,9 @@ private Boolean alive;
         this.surname = surname;
         this.name = name;
         this.id = id;
+    }
+
+    public Author() {
     }
 
     public Boolean getAlive() {
