@@ -18,9 +18,7 @@ private Integer birthYear;
 private Boolean alive;
 
 
-public Author(){
 
-}
 
     public Author(Boolean alive, Integer birthTear, String nationality, String surname, String name, int id) {
         this.alive = alive;

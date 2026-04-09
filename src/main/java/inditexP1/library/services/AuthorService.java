@@ -21,7 +21,7 @@ public class AuthorService {
 
     //GET por ID
 
-    public Optional<Author> getAllAuthorById(int id){
+    public Optional<Author> getAuthorById(int id){
         return authorRepository.findById(id);
     }
 

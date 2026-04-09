@@ -27,7 +27,7 @@ public class AuthorController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Author> getAuthorById(@PathVariable int id) {
-        Optional<Author> author = authorService.getAllAuthorById(id);
+        Optional<Author> author = authorService.getAuthorById(id);
         if (author.isPresent()) {
             return ResponseEntity.ok(author.get());
         } else {
@@ -40,7 +40,7 @@ public class AuthorController {
     //DELETE api/authors/1
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAuthor(@PathVariable int id) {
-        Optional<Author> author = authorService.getAllAuthorById(id);
+        Optional<Author> author = authorService.getAuthorById(id);
         if (author.isPresent()){authorService.deleteAuthor(id);
             return  ResponseEntity.noContent().build();
         }else{
