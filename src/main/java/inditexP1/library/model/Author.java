@@ -23,7 +23,7 @@ private Boolean alive;
 
     public Author(Boolean alive, Integer birthTear, String nationality, String surname, String name, int id) {
         this.alive = alive;
-        this.birthTear = birthTear;
+        this.birthYear = birthTear;
         this.nationality = nationality;
         this.surname = surname;
         this.name = name;
@@ -42,11 +42,11 @@ private Boolean alive;
     }
 
     public Integer getBirthTear() {
-        return birthTear;
+        return birthYear;
     }
 
     public void setBirthTear(Integer birthTear) {
-        this.birthTear = birthTear;
+        this.birthYear = birthTear;
     }
 
     public int getId() {
