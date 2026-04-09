@@ -47,10 +47,12 @@ public class AuthorService {
                 authorEdit.setAlive(author.getAlive());
                 authorEdit.setSurname(author.getSurname());
                 authorEdit.setBirthTear(author.getBirthTear());
+                authorRepository.save(authorEdit);
+                return true;
             } catch (Exception e) {
                 System.out.println("Ha ocurrido un error: \n " + e.getMessage());
                 }
-            return true;
+            return false;
     }
 
     //Post

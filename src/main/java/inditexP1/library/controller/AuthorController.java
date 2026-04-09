@@ -18,7 +18,7 @@ public class AuthorController {
 
     //GET /api/authors
 
-    @GetMapping
+    @GetMapping("/")
     public List<Author> GetAllAuthors(){
         return authorService.getAllAuthors();
     }
@@ -50,13 +50,13 @@ public class AuthorController {
     @PutMapping("/edit/{id}")
     public ResponseEntity<Author> editAuthor(@PathVariable int id, @RequestBody Author author){
         try{
-            Author authorToEdit = authorService.getAuthorById(id).orElseThrow(RuntimeException());
+            Author authorToEdit = authorService.getAuthorById(id).orElseThrow(() -> new RuntimeException("Author not found with id: " + id));
             authorService.editAuthor(id, author);
-            return ResponseEntity.ok(authorToEdit);
+            return ResponseEntity.ok(author);
         } catch(Exception exception){
             System.out.println("Ha ocurrido un error: "+exception.getMessage());
+            return ResponseEntity.status(500).build();
         }
-
     }
 
 
