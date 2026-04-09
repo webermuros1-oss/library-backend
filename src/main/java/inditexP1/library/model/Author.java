@@ -2,7 +2,6 @@ package inditexP1.library.model;
 
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ValueGenerationType;
 
 @Entity
 @Table(name = "Author")
@@ -19,7 +18,9 @@ private Integer birthTear;
 private Boolean alive;
 
 
+public Author(){
 
+}
 
     public Author(Boolean alive, Integer birthTear, String nationality, String surname, String name, int id) {
         this.alive = alive;
