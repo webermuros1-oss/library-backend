@@ -3,12 +3,10 @@ package inditexP1.library.model;
 
 import jakarta.persistence.*;
 
-import java.security.PrivateKey;
-
 @Entity
 @Table(name="books")
 
-public class Books {
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
@@ -19,11 +17,10 @@ public class Books {
     private String yearPublication;
     private String image;
 
+@ManyToOne
+    @JoinColumn(name = Author_id);
 
-    @ManyToOne
-    @JoinColumn(name = Authors_id)
-
-    public Books(int id, String title, String isbn, String yearPublication, String image) {
+    public Book(int id, String title, String isbn, String yearPublication, String image) {
         this.id = id;
         this.title = title;
         this.isbn = isbn;
