@@ -9,49 +9,28 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String title;
-    private String genre;
-    private String publishYear;
-    private Boolean available;
+    private String isbn;
+    private Integer publicationYear;
+    private String image;
 
-    public Book(int id, Boolean available, String publishYear, String genre, String title) {
-        this.id = id;
-        this.available = available;
-        this.publishYear = publishYear;
-        this.genre = genre;
+
+    public Book(String title, String isbn, Integer id, Integer publicationYear, String image) {
         this.title = title;
+        this.isbn = isbn;
+        this.id = id;
+        this.publicationYear = publicationYear;
+        this.image = image;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-
-
-    public Boolean getAvailable() {
-        return available;
-    }
-
-    public void setAvailable(Boolean available) {
-        this.available = available;
-    }
-
-    public String getPublishYear() {
-        return publishYear;
-    }
-
-    public void setPublishYear(String publishYear) {
-        this.publishYear = publishYear;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -60,5 +39,29 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public Integer getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setPublicationYear(Integer publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

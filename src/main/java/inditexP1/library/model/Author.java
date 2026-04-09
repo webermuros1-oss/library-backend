@@ -9,7 +9,7 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-private int id;
+private Integer id;
 
 private String name;
 private String surname;
@@ -20,7 +20,7 @@ private Boolean alive;
 
 
 
-    public Author(Boolean alive, Integer birthTear, String nationality, String surname, String name, int id) {
+    public Author(Boolean alive, Integer birthTear, String nationality, String surname, String name, Integer id) {
         this.alive = alive;
         this.birthYear = birthTear;
         this.nationality = nationality;
