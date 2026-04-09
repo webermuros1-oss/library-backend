@@ -34,8 +34,6 @@ public class AuthorController {
             return ResponseEntity.notFound().build();
         }
 
-
-
     }
     //DELETE api/authors/1
     @DeleteMapping("/{id}")
@@ -46,5 +44,13 @@ public class AuthorController {
         }else{
             return ResponseEntity.notFound().build();
         }
+    }
+
+    //Put
+    @PutMapping("/edit/{id}")
+    public ResponseEntity<Author> editAuthor(@PathVariable int id, @RequestBody Author author){
+        Author authorToEdit = authorService.getAuthorById(id).get();
+        authorService.editAuthor(authorToEdit, author);
+        return ResponseEntity.ok(authorToEdit);
     }
 }

@@ -35,7 +35,8 @@ public class AuthorService {
     public void deleteAuthor(int id) {
         authorRepository.deleteById(id);
     }
-        boolean editAuthor( int id, Author author){
+    //Put
+    public boolean editAuthor( int id, Author author){
             try {
                 if (this.getAuthorById(id).isEmpty()) {
                     throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with that id not found in our DB");
@@ -48,9 +49,10 @@ public class AuthorService {
                 authorEdit.setBirthTear(author.getBirthTear());
             } catch (Exception e) {
                 System.out.println("Ha ocurrido un error: \n " + e.getMessage());
-            }
+                }
             return true;
-        }
+    }
+
 
 
 }
