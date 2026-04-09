@@ -38,14 +38,14 @@ public class AuthorService {
         boolean editAuthor( int id, Author author){
             try {
                 if (this.getAuthorById(id).isEmpty()) {
-                    throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with that id not found in our DB")
-                    Author authorEdit = this.getAuthorById(id).get();
-                    authorEdit.setName(author.getName());
-                    authorEdit.setNationality(author.getNationality());
-                    authorEdit.setAlive(author.getAlive());
-                    authorEdit.setSurname(author.getSurname());
-                    authorEdit.setBirthTear(author.getBirthTear());
+                    throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Author with that id not found in our DB");
                 }
+                Author authorEdit = this.getAuthorById(id).get();
+                authorEdit.setName(author.getName());
+                authorEdit.setNationality(author.getNationality());
+                authorEdit.setAlive(author.getAlive());
+                authorEdit.setSurname(author.getSurname());
+                authorEdit.setBirthTear(author.getBirthTear());
             } catch (Exception e) {
                 System.out.println("Ha ocurrido un error: \n " + e.getMessage());
             }
