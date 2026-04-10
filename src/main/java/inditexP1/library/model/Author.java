@@ -2,6 +2,7 @@ package inditexP1.library.model;
 
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,10 @@ private String category;
         this.id = id;
     }
 
+    @JsonCreator
     public Author() {
     }
+
 
     public Boolean getAlive() {
         return alive;
