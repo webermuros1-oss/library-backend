@@ -59,5 +59,8 @@ public class AuthorController {
         }
     }
 
-
+    @PostMapping("/new/author/{authorId}")
+    public Author addAuthor(@RequestBody Author author){
+         return authorService.saveAuthor(author);
+    }
 }
