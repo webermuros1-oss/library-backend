@@ -32,7 +32,10 @@ public class Book {
         this.id = id;
         this.publicationYear = publicationYear;
         this.image = image;
+        this.category = category;
 
+    }
+    public Book() {
     }
 
     public Integer getId() {
