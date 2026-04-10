@@ -60,5 +60,10 @@ public class AuthorService {
         return authorRepository.save(author);
     }
 
+    //GET autores por categoria
+    public List<Author> getAuthorsByCategory(String category) {
+        return authorRepository.findByCategory(category);
+    }
+
 
 }

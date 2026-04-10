@@ -18,15 +18,15 @@ public class AuthorController {
 
     //GET /api/authors
 
-    @GetMapping("/")
+    @GetMapping
     public List<Author> GetAllAuthors(){
         return authorService.getAllAuthors();
     }
 
-    //GET api/authors/1
+    //GET /api/authors/1
 
     @GetMapping("/{id}")
-    public ResponseEntity<Author> getAuthorById(@PathVariable int id) {
+    public ResponseEntity<Author> GetAuthorById(@PathVariable int id) {
         Optional<Author> author = authorService.getAuthorById(id);
         if (author.isPresent()) {
             return ResponseEntity.ok(author.get());
@@ -34,8 +34,10 @@ public class AuthorController {
             return ResponseEntity.notFound().build();
         }
 
+
+
     }
-    //DELETE api/authors/1
+    //DELETE /api/authors/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAuthor(@PathVariable int id) {
         Optional<Author> author = authorService.getAuthorById(id);
@@ -45,25 +47,10 @@ public class AuthorController {
             return ResponseEntity.notFound().build();
         }
     }
-
-    //Put
-    @PutMapping("/edit/{id}")
-    public ResponseEntity<Author> editAuthor(@PathVariable int id, @RequestBody Author author){
-        try{
-            Author authorToEdit = authorService.getAuthorById(id).orElseThrow(() -> new RuntimeException("Author not found with id: " + id));
-            authorService.editAuthor(id, author);
-            return ResponseEntity.ok(author);
-        } catch(Exception exception){
-            System.out.println("Ha ocurrido un error: "+exception.getMessage());
-            return ResponseEntity.status(500).build();
-        }
+    //GET category
+    @GetMapping("/category/{category}")
+    public List<Author> getAuthorsByCategory(@PathVariable String category) {
+        return authorService.getAuthorsByCategory(category);
     }
 
-    //Post
-    @PostMapping("/new")
-    public ResponseEntity<Author> addAuthor(@RequestBody Author author){
-        if(!authorService.getAllAuthors().contains(author))
-         return ResponseEntity.ok(authorService.saveAuthor(author));
-        else throw new RuntimeException("This author id already exist in our DB");
-    }
 }
