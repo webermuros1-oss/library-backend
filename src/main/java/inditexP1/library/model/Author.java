@@ -50,11 +50,11 @@ private String category;
         this.alive = alive;
     }
 
-    public Integer getBirthTear() {
+    public Integer getBirthYear() {
         return birthYear;
     }
 
-    public void setBirthTear(Integer birthTear) {
+    public void setBirthYear(Integer birthTear) {
         this.birthYear = birthTear;
     }
 
