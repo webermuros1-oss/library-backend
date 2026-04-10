@@ -2,6 +2,7 @@ package inditexP1.library.controller;
 
 
 import inditexP1.library.model.Author;
+import inditexP1.library.repository.AuthorRepository;
 import inditexP1.library.services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -53,4 +54,16 @@ public class AuthorController {
         return authorService.getAuthorsByCategory(category);
     }
 
+    //Put /api/author/{id}
+    @PutMapping("/{id}")
+    public boolean editAuthor(@PathVariable Integer id, @RequestBody Author autor){
+        return authorService.editAuthor(id, autor);
+    }
+
+    //Post /api/author/new
+    @PostMapping("/new")
+    public Author saveAuthor(@RequestBody Author author){
+        if(authorService.getAllAuthors().contains(author)) throw new RuntimeException("Ese autor ya existe en la BD.");
+        return authorService.saveAuthor(author);
+    }
 }
