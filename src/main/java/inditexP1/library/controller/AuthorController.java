@@ -54,13 +54,13 @@ public class AuthorController {
         return authorService.getAuthorsByCategory(category);
     }
 
-    //Put /api/author/{id}
+    //Put /api/authors/{id}
     @PutMapping("/{id}")
     public boolean editAuthor(@PathVariable Integer id, @RequestBody Author autor){
         return authorService.editAuthor(id, autor);
     }
 
-    //Post /api/author/new
+    //Post /api/authors/new
     @PostMapping("/new")
     public Author saveAuthor(@RequestBody Author author){
         if(authorService.getAllAuthors().contains(author)) throw new RuntimeException("Ese autor ya existe en la BD.");
