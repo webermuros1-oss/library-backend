@@ -23,10 +23,10 @@ public class AuthorController {
         return authorService.getAllAuthors();
     }
 
-    //GET api/authors/1
+    //GET /api/authors/1
 
     @GetMapping("/{id}")
-    public ResponseEntity<Author> getAuthorById(@PathVariable int id) {
+    public ResponseEntity<Author> GetAuthorById(@PathVariable int id) {
         Optional<Author> author = authorService.getAuthorById(id);
         if (author.isPresent()) {
             return ResponseEntity.ok(author.get());
@@ -37,7 +37,7 @@ public class AuthorController {
 
 
     }
-    //DELETE api/authors/1
+    //DELETE /api/authors/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAuthor(@PathVariable int id) {
         Optional<Author> author = authorService.getAuthorById(id);
@@ -47,4 +47,10 @@ public class AuthorController {
             return ResponseEntity.notFound().build();
         }
     }
+    //GET category
+    @GetMapping("/category/{category}")
+    public List<Author> getAuthorsByCategory(@PathVariable String category) {
+        return authorService.getAuthorsByCategory(category);
+    }
+
 }

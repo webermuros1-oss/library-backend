@@ -68,6 +68,12 @@ public class BookController {
             return ResponseEntity.notFound().build();
         }
     }
+    // GET category
+
+    @GetMapping("/category/{category}")
+    public List<Book> getBooksByCategory(@PathVariable String category) {
+        return bookService.getBooksByCategory(category);
+    }
 
 }
 

@@ -31,5 +31,10 @@ public class AuthorService {
         authorRepository.deleteById(id);
     }
 
+    //GET autores por categoria
+    public List<Author> getAuthorsByCategory(String category) {
+        return authorRepository.findByCategory(category);
+    }
+
 
 }

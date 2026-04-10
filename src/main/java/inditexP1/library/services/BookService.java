@@ -27,6 +27,8 @@ import java.util.Optional;
         return bookRepository.findById(id);
     }
 
+
+
     // DELETE
 
     public void deleteBook(int id) {
@@ -53,5 +55,11 @@ import java.util.Optional;
         }
 
 
+        public List<Book> getBooksByCategory(String category) {
+            return bookRepository.findByCategory(category);
+        }
 
-}
+
+
+
+    }

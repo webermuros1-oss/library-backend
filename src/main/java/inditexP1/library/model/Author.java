@@ -19,6 +19,9 @@ private String surname;
 private String nationality;
 private Integer birthYear;
 private Boolean alive;
+private String category;
+
+
     @OneToMany(mappedBy = "author")
     @JsonIgnoreProperties("author")
     private List<Book> books = new ArrayList<>();
@@ -86,4 +89,19 @@ private Boolean alive;
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
+
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
 }

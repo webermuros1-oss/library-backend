@@ -18,6 +18,7 @@ public class Book {
     private String isbn;
     private Integer publicationYear;
     private String image;
+    private String category;
 
     @ManyToOne
     @JsonIgnoreProperties("books")
@@ -25,12 +26,13 @@ public class Book {
 
 
 
-    public Book(String title, String isbn, Integer id, Integer publicationYear, String image) {
+    public Book(String title, String isbn, Integer id, Integer publicationYear, String image, String category) {
         this.title = title;
         this.isbn = isbn;
         this.id = id;
         this.publicationYear = publicationYear;
         this.image = image;
+
     }
 
     public Integer getId() {
@@ -79,5 +81,13 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
