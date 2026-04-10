@@ -9,7 +9,7 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-private int id;
+private Integer id;
 
 private String name;
 private String surname;
@@ -18,11 +18,9 @@ private Integer birthYear;
 private Boolean alive;
 
 
-
-
-    public Author(Boolean alive, Integer birthTear, String nationality, String surname, String name, int id) {
+    public Author(Boolean alive, Integer birthYear, String nationality, String surname, String name, int id) {
         this.alive = alive;
-        this.birthYear = birthTear;
+        this.birthYear = birthYear;
         this.nationality = nationality;
         this.surname = surname;
         this.name = name;
@@ -40,12 +38,12 @@ private Boolean alive;
         this.alive = alive;
     }
 
-    public Integer getBirthTear() {
+    public Integer getBirthYear() {
         return birthYear;
     }
 
-    public void setBirthTear(Integer birthTear) {
-        this.birthYear = birthTear;
+    public void setBirthYear(Integer birthYear) {
+        this.birthYear = birthYear;
     }
 
     public int getId() {
