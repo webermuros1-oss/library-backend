@@ -2,6 +2,9 @@ package inditexP1.library.model;
 
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Author")
@@ -16,6 +19,10 @@ private String surname;
 private String nationality;
 private Integer birthYear;
 private Boolean alive;
+    @OneToMany(mappedBy = "author")
+    @JsonIgnoreProperties("author")
+    private List<Book> books = new ArrayList<>();
+
 
 
 

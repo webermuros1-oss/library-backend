@@ -2,6 +2,9 @@ package inditexP1.library.model;
 
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 
 @Entity
 @Table(name="book")
@@ -15,6 +18,11 @@ public class Book {
     private String isbn;
     private Integer publicationYear;
     private String image;
+
+    @ManyToOne
+    @JsonIgnoreProperties("books")
+    private Author author;
+
 
 
     public Book(String title, String isbn, Integer id, Integer publicationYear, String image) {
@@ -63,5 +71,13 @@ public class Book {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }
