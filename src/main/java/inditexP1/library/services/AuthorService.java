@@ -46,7 +46,7 @@ public class AuthorService {
                 authorEdit.setNationality(author.getNationality());
                 authorEdit.setAlive(author.getAlive());
                 authorEdit.setSurname(author.getSurname());
-                authorEdit.setBirthTear(author.getBirthTear());
+                authorEdit.setBirthYear(author.getBirthYear());
                 authorRepository.save(authorEdit);
                 return true;
             } catch (Exception e) {
