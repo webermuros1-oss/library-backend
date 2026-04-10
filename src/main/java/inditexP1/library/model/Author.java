@@ -18,16 +18,19 @@ private Integer birthYear;
 private Boolean alive;
 
 
-    public Author(Boolean alive, Integer birthYear, String nationality, String surname, String name, int id) {
-        this.alive = alive;
-        this.birthYear = birthYear;
-        this.nationality = nationality;
-        this.surname = surname;
+    public Author(String name, String surname, String nationality, Integer birthYear, Boolean alive) {
         this.name = name;
-        this.id = id;
+        this.surname = surname;
+        this.nationality = nationality;
+        this.birthYear = birthYear;
+        this.alive = alive;
     }
 
     public Author() {
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public Boolean getAlive() {
@@ -44,14 +47,6 @@ private Boolean alive;
 
     public void setBirthYear(Integer birthYear) {
         this.birthYear = birthYear;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
