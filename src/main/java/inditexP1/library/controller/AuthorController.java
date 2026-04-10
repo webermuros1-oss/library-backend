@@ -63,7 +63,6 @@ public class AuthorController {
     //Post /api/authors/new
     @PostMapping("/new")
     public Author saveAuthor(@RequestBody Author author){
-        if(authorService.getAllAuthors().contains(author)) throw new RuntimeException("Ese autor ya existe en la BD.");
         return authorService.saveAuthor(author);
     }
 }

@@ -54,8 +54,8 @@ private String category;
         return birthYear;
     }
 
-    public void setBirthYear(Integer birthTear) {
-        this.birthYear = birthTear;
+    public void setBirthYear(Integer birthYear) {
+        this.birthYear = birthYear;
     }
 
     public int getId() {
