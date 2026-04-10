@@ -60,8 +60,10 @@ public class AuthorController {
     }
 
     //Post
-    @PostMapping("/new/author/{authorId}")
-    public Author addAuthor(@RequestBody Author author){
+    @PostMapping("/new/{authorId}")
+    public Author addAuthor( @PathVariable int id, @RequestBody Author author){
+        if(!authorService.getAllAuthors().contains(author))
          return authorService.saveAuthor(author);
+        else throw new RuntimeException("This author id already exist in our DB");
     }
 }
