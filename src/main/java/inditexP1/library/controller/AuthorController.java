@@ -17,14 +17,14 @@ public class AuthorController {
     @Autowired
     private AuthorService authorService;
 
-    //GET /api/authors
+
 
     @GetMapping
     public List<Author> GetAllAuthors(){
         return authorService.getAllAuthors();
     }
 
-    //GET /api/authors/1
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Author> GetAuthorById(@PathVariable int id) {
@@ -38,7 +38,7 @@ public class AuthorController {
 
 
     }
-    //DELETE /api/authors/{id}
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAuthor(@PathVariable int id) {
         Optional<Author> author = authorService.getAuthorById(id);
@@ -48,19 +48,19 @@ public class AuthorController {
             return ResponseEntity.notFound().build();
         }
     }
-    //GET category
+
     @GetMapping("/category/{category}")
     public List<Author> getAuthorsByCategory(@PathVariable String category) {
         return authorService.getAuthorsByCategory(category);
     }
 
-    //Put /api/authors/{id}
+
     @PutMapping("/{id}")
     public boolean editAuthor(@PathVariable Integer id, @RequestBody Author autor){
         return authorService.editAuthor(id, autor);
     }
 
-    //Post /api/authors/new
+
     @PostMapping("/new")
     public Author saveAuthor(@RequestBody Author author){
         return authorService.saveAuthor(author);

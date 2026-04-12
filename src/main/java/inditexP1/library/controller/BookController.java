@@ -18,14 +18,14 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    //GET /api/books
+
 
     @GetMapping
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
-    //GET api/books/{id}
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable int id) {
@@ -36,7 +36,7 @@ public class BookController {
             return ResponseEntity.notFound().build();
         }
     }
-    // POST
+
 
     @PostMapping
     public ResponseEntity<Book> createBook(@RequestBody Book book) {
@@ -44,7 +44,7 @@ public class BookController {
         return ResponseEntity.status(201).body(saved);
     }
 
-    //PUT
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Book> updateBook(@PathVariable int id, @RequestBody Book book) {
@@ -57,7 +57,7 @@ public class BookController {
     }
 
 
-    //DELETE
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable int id) {
         Optional<Book> book = bookService.getBookById(id);
@@ -68,7 +68,7 @@ public class BookController {
             return ResponseEntity.notFound().build();
         }
     }
-    // GET category
+
 
     @GetMapping("/category/{category}")
     public List<Book> getBooksByCategory(@PathVariable String category) {

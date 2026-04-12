@@ -19,23 +19,23 @@ public class AuthorService {
     @Autowired
     private AuthorRepository authorRepository;
 
-    //GET todos
+
     public List<Author> getAllAuthors() {
         return authorRepository.findAll();
     }
 
-    //GET por ID
+
 
     public Optional<Author> getAuthorById(int id) {
         return authorRepository.findById(id);
     }
 
-    //DELETE
+
 
     public void deleteAuthor(int id) {
         authorRepository.deleteById(id);
     }
-    //Put
+
     public boolean editAuthor( int id, Author author){
             try {
                 if (this.getAuthorById(id).isEmpty()) {
@@ -55,12 +55,12 @@ public class AuthorService {
             return false;
     }
 
-    //Post
+
     public Author saveAuthor(Author author){
         return authorRepository.save(author);
     }
 
-    //GET autores por categoria
+
     public List<Author> getAuthorsByCategory(String category) {
         return authorRepository.findByCategory(category);
     }
